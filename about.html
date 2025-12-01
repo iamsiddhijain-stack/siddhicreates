@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About – Siddhi Creates</title>
+    <style>
+        @font-face {
+    font-family: 'Hellasfun Bold';
+    src: url('./fonts/HFUNB.TTF') format('truetype');
+    font-weight: bold;
+}
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+    background-color: #ffffff;
+    font-family: 'Hellasfun Bold', sans-serif;
+    overflow-x: hidden;
+}
+
+
+        .navbar {
+            border: 3px solid #000000;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background-color: #ffffff;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Hellasfun Bold', sans-serif;
+            font-size: 32px;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Hellasfun Bold', sans-serif;
+            font-size: 20px;
+            color: #000000;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #000000;
+            transform: scaleX(0);
+            transition: transform 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            transform: scale(1.08);
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #000000;
+            transition: 0.3s;
+        }
+
+        
+        .page {
+            padding: 60px 80px;
+            min-height: calc(100vh - 160px);
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            column-gap: 40px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+       
+        .about-left {
+            position: relative;
+        }
+
+        .pink-circle {
+            width: 420px;
+            height: 420px;
+            background-color: #FFE1F0;
+            border-radius: 50%;
+            position: absolute;
+            top: -80px;
+            left: 40px;
+            z-index: 1;
+        }
+
+        .about-heading {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 32px;
+        }
+
+        .about-heading h1 {
+            font-family: 'Hellasfun Bold', sans-serif;
+            font-size: 90px;
+            line-height: 0.85;
+            letter-spacing: -2px;
+        }
+
+        .gold-star {
+            position: absolute;
+            width: 80px;
+            top: -10px;
+            left: 360px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .about-text {
+            position: relative;
+            z-index: 2;
+            max-width: 520px;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .about-text p {
+            margin-bottom: 16px;
+        }
+
+        
+        .about-right {
+            position: relative;
+            height: 600px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-7px); }
+        }
+
+        .floating {
+            position: absolute;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .photo-strip {
+            width: 260px;
+            top: 40px;
+            left: 0px;
+            transform: rotate(-6deg);
+            transform-origin: center;
+        }
+
+        .id-card {
+            width: 320px;
+            top: 80px;
+            right: 30px;
+            transform: rotate(4deg);
+            transform-origin: center;
+            animation-delay: 0.3s;
+        }
+
+        .flower {
+            width: 180px;
+            top: 200px;
+            right: 80px;
+            animation-delay: 0.6s;
+        }
+
+        .dvd {
+            width: 160px;
+            bottom: 40px;
+            left: 20px;
+            animation-delay: 0.9s;
+        }
+
+        .movie-board {
+            width: 190px;
+            bottom: 110px;
+            left: -20px;
+            animation-delay: 1.2s;
+        }
+
+        .right-text {
+    position: absolute;
+    right: 0;
+    bottom: 20px;     
+    width: 320px;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: right;
+}
+
+        
+        .footer {
+            border-top: 3px solid #000000;
+            padding: 30px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+        }
+
+        .footer-logo {
+            font-family: 'Hellasfun Bold', sans-serif;
+            font-size: 24px;
+            color: #000000;
+        }
+
+        .footer-contact {
+            font-size: 16px;
+            color: #000000;
+            text-align: right;
+        }
+
+        .footer-contact p {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }.logo {
+    font-family: 'Hellasfun Bold', sans-serif;
+    font-size: 32px;
+    color: #000000;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-star {
+    color: #FFB6D9;
+    font-size: 28px;
+}
+
+
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: #ffffff;
+                flex-direction: column;
+                gap: 0;
+                padding: 20px;
+                border: 3px solid #000000;
+                border-top: none;
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 15px 0;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            
+            .page {
+                padding: 30px 20px;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .pink-circle {
+                width: 250px;
+                height: 250px;
+                top: -50px;
+                left: 20px;
+            }
+
+            .about-heading h1 {
+                font-size: 60px;
+            }
+
+            .gold-star {
+                width: 60px;
+                left: 240px;
+            }
+
+            .about-text {
+                font-size: 18px;
+            }
+
+            
+            .about-right {
+                display: none;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .footer-logo {
+                font-size: 20px;
+            }
+
+            .footer-contact {
+                text-align: center;
+                font-size: 14px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .page {
+                padding: 40px;
+            }
+
+            .about-heading h1 {
+                font-size: 70px;
+            }
+
+            .pink-circle {
+                width: 320px;
+                height: 320px;
+            }
+
+            .gold-star {
+                width: 60px;
+                left: 280px;
+            }
+
+           
+            .photo-strip { width: 200px; }
+            .id-card { width: 260px; }
+            .flower { width: 140px; }
+            .dvd { width: 130px; }
+            .movie-board { width: 150px; }
+
+            .right-text {
+                font-size: 18px;
+                width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+    <span class="logo-star">★</span> siddhi creates
+</a>
+
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="about.html">About</a></li>
+            <li><a href="work.html">Works</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    
+    <div class="page">
+        <div class="content">
+            <!-- LEFT -->
+            <div class="about-left">
+                <div class="pink-circle"></div>
+
+                <div class="about-heading">
+                    <h1>about<br><span>me.</span></h1>
+                    <img src="icon 13.png" alt="Gold star" class="gold-star">
+                </div>
+
+                <div class="about-text">
+                    <p>Hello, I'm Siddhi, a freelance creative based in Mumbai, India. I'm a versatile creator with diverse passions spanning fashion, advertising, and user experience design.</p>
+                    <p>I love crafting authentic and engaging creatives that tell meaningful stories, connecting people and uncovering beauty in everyday moments.</p>
+                    <p>Within me coexist two forces: the logical and the creative. Currently, I'm pursuing a bachelor's degree in communication design while freelancing in design, a combination that sparks fresh, thoughtful, and genuinely compelling ideas.</p>
+                </div>
+            </div>
+
+           
+            <div class="about-right">
+                <img src="Untitled design (7).png" alt="Photo strip" class="floating photo-strip">
+                <img src="callmeifyougetlostid.png" alt="ID card" class="floating id-card">
+                <img src="icon 14.png" alt="Flower" class="floating flower">
+                <img src="icon 15.png" alt="Movie board" class="floating movie-board">
+
+                <div class="right-text">
+                    <p>When I'm not immersed in work for hours on end, you'll often find me traveling, attending talks, thrifting, discovering hidden gems, or enjoying time with friends. Ultimately, my goal is to create work that feels inviting, warm, and evokes nostalgia.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    <footer class="footer">
+       <div class="footer-logo">
+    <span class="footer-star">★</span> siddhi creates
+</div>
+
+        <div class="footer-contact">
+            <p>Email: hello@siddhicreates.com</p>
+            <p>Phone: +91 98765 43210</p>
+            <p>Mumbai, India</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

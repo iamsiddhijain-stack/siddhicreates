@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zine Library – Siddhi Creates</title>
+    <style>
+        @font-face {
+    font-family: 'Hellasfun Bold';
+    src: url('./fonts/HFUNB.TTF') format('truetype');
+    font-weight: bold;
+}
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+    background-color: #ffffff;
+    font-family: 'Hellasfun Bold', sans-serif;
+    overflow-x: hidden;
+}
+
+
+       
+        .navbar {
+            border: 3px solid #000000;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background-color: #ffffff;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Hellasfun Bold', sans-serif;
+            font-size: 32px;
+            color: #000000;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-star {
+            color: #FFB6D9;
+            font-size: 28px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Hellasfun Bold', sans-serif;
+            font-size: 20px;
+            color: #000000;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #000000;
+            transform: scaleX(0);
+            transition: transform 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            transform: scale(1.08);
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #000000;
+            transition: 0.3s;
+        }
+
+      
+        .page {
+            padding: 60px 80px;
+            min-height: calc(100vh - 160px);
+        }
+
+        .project-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+       
+        .project-left {
+            position: relative;
+        }
+
+       .pink-star {
+    width: 200px;
+    height: 200px;
+    background-color: #FFE1F0;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    position: absolute;
+    z-index: 1;
+    top: -10px;     
+    left: 10px;     
+}
+
+
+        .project-title {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 40px;
+        }
+
+        .project-title h1 {
+            font-family: 'Hellasfun Bold', sans-serif;
+            font-size: 72px;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .project-description {
+            position: relative;
+            z-index: 2;
+            font-size: 20px;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        
+.project-right {
+    position: relative;
+    height: 620px;      
+    width: 100%;
+}
+
+.zine-image-1 {
+    position: absolute;
+    width: 380px;       
+    height: auto;
+    left: -80px;        
+    top: 0px;
+    object-fit: contain;
+    animation: float 3s ease-in-out infinite;
+    animation-delay: 0s;
+}
+
+
+.zine-image-2 {
+    position: absolute;
+    width: 250px;       
+    height: auto;
+    left: 0px;
+    top: 300px;         
+    object-fit: contain;
+    animation: float 3s ease-in-out infinite;
+    animation-delay: 0.3s;
+}
+
+.zine-image-3 {
+    position: absolute;
+    width: 340px;       
+    height: auto;
+    max-height: 600px;  
+    right: 0px;
+    top: 0px;
+    object-fit: contain;
+    animation: float 3s ease-in-out infinite;
+    animation-delay: 0.6s;
+}
+
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-7px); }
+        }
+
+        .footer {
+            border-top: 3px solid #000000;
+            padding: 30px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+        }
+
+        .footer-logo {
+            font-family: 'Hellasfun Bold', sans-serif;
+            font-size: 24px;
+            color: #000000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-star {
+            color: #FFB6D9;
+            font-size: 22px;
+        }
+
+        .footer-contact {
+            font-size: 16px;
+            color: #000000;
+            text-align: right;
+        }
+
+        .footer-contact p {
+            margin: 5px 0;
+        }
+
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .logo-star {
+                font-size: 22px;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: #ffffff;
+                flex-direction: column;
+                gap: 0;
+                padding: 20px;
+                border: 3px solid #000000;
+                border-top: none;
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 15px 0;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .page {
+                padding: 30px 20px;
+            }
+
+            /* Stack vertically */
+            .project-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .pink-star {
+                width: 150px;
+                height: 150px;
+                top: 20px;
+                left: -30px;
+            }
+
+            .project-title h1 {
+                font-size: 48px;
+            }
+
+            .project-description {
+                font-size: 18px;
+            }
+
+           
+            .project-right {
+                position: relative;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .zine-image-1,
+            .zine-image-2,
+            .zine-image-3 {
+                position: relative;
+                width: 100%;
+                height: auto;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .footer-logo {
+                font-size: 20px;
+            }
+
+            .footer-star {
+                font-size: 18px;
+            }
+
+            .footer-contact {
+                text-align: center;
+                font-size: 14px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .project-title h1 {
+                font-size: 60px;
+            }
+
+            .project-description {
+                font-size: 18px;
+            }
+
+            .pink-star {
+                width: 170px;
+                height: 170px;
+            }
+
+            .zine-image-1 {
+                width: 380px;
+                height: 220px;
+            }
+
+            .zine-image-2 {
+                width: 210px;
+                height: 280px;
+            }
+
+            .zine-image-3 {
+                width: 280px;
+                height: 480px;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <span class="logo-star">★</span> siddhi creates
+        </a>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="about.html">About</a></li>
+            <li><a href="work.html">Works</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    
+    <div class="page">
+        <div class="project-container">
+            <!-- LEFT SIDE -->
+            <div class="project-left">
+                <div class="pink-star"></div>
+                
+                <div class="project-title">
+                    <h1>Zine Library</h1>
+                </div>
+
+                <div class="project-description">
+                    <p>This project is a curated library of experimental zines created to explore the possibilities of print as a medium. Each zine reflects a distinct theme, narrative voice, and visual identity, allowing me to push the boundaries of layout, typography, and image-making. Working across ideas—from imagination and nostalgia to subcultures and urban life—I used the zine format as a space for creative freedom and self-expression.</p>
+                </div>
+            </div>
+
+            
+            <div class="project-right">
+                <img src="zineimg1.png" alt="Thank you zine" class="zine-image-1">
+                <img src="zineimg2.png" alt="Ink to pixel" class="zine-image-2">
+                <img src="zineimg3.png" alt="Zine collection" class="zine-image-3">
+            </div>
+        </div>
+    </div>
+
+   
+    <footer class="footer">
+        <div class="footer-logo">
+            <span class="footer-star">★</span> siddhi creates
+        </div>
+        <div class="footer-contact">
+            <p>Email: hello@siddhicreates.com</p>
+            <p>Phone: +91 98765 43210</p>
+            <p>Mumbai, India</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

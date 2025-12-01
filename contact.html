@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact – Siddhi Creates</title>
+    <style>
+        @font-face {
+            font-family: 'Hellasfun Bold';
+            src: url('./fonts/HFUNB.TTF') format('truetype');
+            font-weight: bold;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffffff;
+            font-family: 'Hellasfun Bold', sans-serif;
+            overflow-x: hidden;
+        }
+
+        
+        .navbar {
+            border: 3px solid #000000;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background-color: #ffffff;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Hellasfun Bold', sans-serif;
+            font-size: 32px;
+            color: #000000;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-star {
+            color: #FFB6D9;
+            font-size: 28px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Hellasfun Bold', sans-serif;
+            font-size: 20px;
+            color: #000000;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #000000;
+            transform: scaleX(0);
+            transition: transform 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            transform: scale(1.08);
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #000000;
+            transition: 0.3s;
+        }
+
+       
+        .contact-page {
+            position: relative;
+            min-height: calc(100vh - 160px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 60px;
+        }
+
+       .pink-star {
+    position: absolute;
+    width: 482px;
+    height: 438px;
+    left: 137px;
+    top: 120px;       
+    background-color: #FFE1F0;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    transform: rotate(-9.24deg);
+    z-index: 1;
+}
+
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1200px;
+        }
+
+        .contact-title {
+            font-family: 'Hellasfun Bold', sans-serif;
+            font-size: 142px;
+            line-height: 136px;
+            text-align: center;
+            color: #000000;
+            margin-bottom: 40px;
+        }
+
+        .contact-email {
+            font-family: 'Hellasfun Bold', sans-serif;
+            font-size: 32px;
+            line-height: 31px;
+            color: #000000;
+        }
+
+        .contact-email a {
+            color: #000000;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-email a:hover {
+            color: #FFB6D9;
+        }
+
+      
+        .footer {
+            border-top: 3px solid #000000;
+            padding: 30px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+        }
+
+        .footer-logo {
+            font-family: 'Hellasfun Bold', sans-serif;
+            font-size: 24px;
+            color: #000000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-star {
+            color: #FFB6D9;
+            font-size: 22px;
+        }
+
+        .footer-contact {
+            font-size: 16px;
+            color: #000000;
+            text-align: right;
+        }
+
+        .footer-contact p {
+            margin: 5px 0;
+        }
+
+       
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .logo-star {
+                font-size: 22px;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: #ffffff;
+                flex-direction: column;
+                gap: 0;
+                padding: 20px;
+                border: 3px solid #000000;
+                border-top: none;
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 15px 0;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .contact-page {
+                padding: 40px 20px;
+            }
+
+            .pink-star {
+                width: 250px;
+                height: 227px;
+                left: 20px;
+                top: 120px;
+            }
+
+            .contact-title {
+                font-size: 60px;
+                line-height: 60px;
+                margin-bottom: 30px;
+            }
+
+            .contact-email {
+                font-size: 20px;
+                line-height: 24px;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .footer-logo {
+                font-size: 20px;
+            }
+
+            .footer-star {
+                font-size: 18px;
+            }
+
+            .footer-contact {
+                text-align: center;
+                font-size: 14px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .contact-title {
+                font-size: 100px;
+                line-height: 96px;
+            }
+
+            .contact-email {
+                font-size: 28px;
+            }
+
+            .pink-star {
+                width: 350px;
+                height: 318px;
+            }
+        }
+    </style>
+</head>
+<body>
+ 
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <span class="logo-star">★</span> siddhi creates
+        </a>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="about.html">About</a></li>
+            <li><a href="work.html">Works</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+   
+    <div class="contact-page">
+        <div class="pink-star"></div>
+        
+        <div class="contact-content">
+            <h1 class="contact-title">Contact me :)</h1>
+            <p class="contact-email">mail <a href="mailto:iamsiddhijain@gmail.com">iamsiddhijain@gmail.com</a></p>
+        </div>
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer-logo">
+            <span class="footer-star">★</span> siddhi creates
+        </div>
+        <div class="footer-contact">
+            <p>Email: hello@siddhicreates.com</p>
+            <p>Phone: +91 98765 43210</p>
+            <p>Mumbai, India</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
